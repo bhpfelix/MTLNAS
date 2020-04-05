@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 
 ## Dataset
 Follow the instruction [here](https://github.com/ethanygao/NDDR-CNN) to prepare the dataset. Alternatively, download the preprocessed dataset [here](https://www.dropbox.com/sh/e44jyh6ayuimigp/AADHlrCVnCDyTdDT9wDOy8cUa?dl=0). 
-Download the converted PyTorch models from [here](https://drive.google.com/file/d/1mXsWHYlE-u4EM0Sr4XvBYcLxCFJ-F4dd/view?usp=sharing), then create a `weights` directory and unzip the models inside.
+Download the converted PyTorch models from [here](https://drive.google.com/open?id=13caGJwskbeEgxGXYbdCH59a0FEWIWZnB), then create a `weights` directory and unzip the models inside.
 
 When you are all set, you should have the following file structure:
 ```
