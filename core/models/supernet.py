@@ -15,14 +15,11 @@ from core.utils.losses import poly, entropy_loss, l1_loss
 class GeneralizedMTLNASNet(nn.Module):
     def __init__(self, cfg, net1, net2,
                  net1_connectivity_matrix,
-                 net2_connectivity_matrix,
-                 aux_loss=False
+                 net2_connectivity_matrix
                 ):
         """
         :param net1: task one network
         :param net2: task two network
-        :param task1: task one
-        :param task2: task two
         :param net1_connectivity_matrix: Adjacency list for the Single sided NDDR connections
         :param net2_connectivity_matrix: Adjacency list for the Single sided NDDR connections
         """
@@ -75,7 +72,6 @@ class GeneralizedMTLNASNet(nn.Module):
         self._arch_parameters = dict()
         self._net_parameters = dict()
         for k, v in self.named_parameters():
-            # do not optimize arch parameter
             if 'alpha' in k:
                 self._arch_parameters[k] = v
             else:
@@ -161,8 +157,6 @@ class GeneralizedMTLNASNet(nn.Module):
         self.retraining = True
 
     def gumbel_connectivity(self, path_weights):
-        # TODO: Think about whether we need to turn off stochacity during arch search
-        # implementing droppath like behavior with Gumbel Softmax
         temp = self.get_temperature()
         net_dist = dist.relaxed_bernoulli.RelaxedBernoulli(temp, logits=path_weights)
         path_connectivity = net_dist.rsample()

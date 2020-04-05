@@ -28,8 +28,6 @@ from core.utils.visualization import process_image, save_heatmap, save_connectiv
 
 from eval import evaluate
 
-torch.autograd.set_detect_anomaly(True)
-
 
 def synchronize():
     """

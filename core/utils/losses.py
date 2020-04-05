@@ -17,29 +17,6 @@ def poly(start, end, steps, total_steps, period, power):
     base = total_steps * period[0]
     ceil = total_steps * period[1]
     return end - delta * (1. - float(steps - base) / (ceil - base)) ** power
-    
-    
-# Build Losses
-def logits_loss(prediction, gt, reduce):
-    reduction = 'mean' if reduce else 'none'
-    prediction = F.softmax(prediction, dim=1)
-    return F.mse_loss(prediction, gt, reduction=reduction)
-
-
-def class_loss(prediction, gt):
-    return F.cross_entropy(prediction, gt)
-
-    
-def depth_loss(prediction, gt, ignore_label=255):
-    N, C, H, W = gt.size()
-    prediction = F.interpolate(prediction, (H, W), mode='bilinear', align_corners=True)
-    prediction = prediction.view(-1)
-    gt = gt.view(-1)
-    mask = (gt != ignore_label).nonzero()
-    prediction = prediction[mask]
-    gt = gt[mask]
-    loss = torch.sqrt(torch.mean((prediction - gt)**2))
-    return loss
 
 
 def normal_loss(prediction, gt, ignore_label=255):

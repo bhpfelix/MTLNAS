@@ -57,16 +57,6 @@ def process_normal_label(pred, gt, ignore_label):
     return pred, gt
 
 
-def save_depth_label(matrix, filename):
-    fig = plt.figure(0)
-    fig.clf()
-    plt.matshow(matrix, fignum=0, cmap=plt.cm.jet)
-    plt.colorbar()
-    plt.savefig(filename)
-    img = Image.open(filename)
-    return np.array(img).transpose((2, 0, 1))
-
-
 def save_heatmap(matrix, filename, vmin=0., vmax=1.):
     fig = plt.figure(0)
     fig.clf()

@@ -2,18 +2,6 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-
-def squared_error(prediction, gt, ignore_label):
-    N, C, H, W = gt.size()
-    prediction = F.interpolate(prediction, (H, W), mode='bilinear', align_corners=True)
-    prediction = prediction.view(-1)
-    gt = gt.view(-1)
-    mask = (gt != ignore_label).nonzero()
-    prediction = prediction[mask]
-    gt = gt[mask]
-    error = torch.sum((prediction - gt)**2)
-    return error, prediction.size(0)
-
     
 def compute_hist(prediction, gt, n_classes, ignore_label):
     N, C, H, W = gt.size()
