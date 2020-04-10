@@ -24,12 +24,13 @@ $ pip install -r requirements.txt
 ```
 
 ## Dataset
-Follow the instruction [here](https://github.com/ethanygao/NDDR-CNN) to prepare the dataset. Alternatively, download the preprocessed dataset [here](https://www.dropbox.com/sh/e44jyh6ayuimigp/AADHlrCVnCDyTdDT9wDOy8cUa?dl=0). 
+Follow the instruction [here](https://github.com/ethanygao/NDDR-CNN) to prepare the dataset. Alternatively, download the preprocessed dataset [here](https://drive.google.com/file/d/1JyTApScm6S5iz77uxH0qTaYtAhR6xxoj/view?usp=sharing). 
 Download the converted PyTorch models from [here](https://drive.google.com/open?id=13caGJwskbeEgxGXYbdCH59a0FEWIWZnB), then create a `weights` directory and unzip the models inside.
 
 When you are all set, you should have the following file structure:
 ```
 datasets/nyu_v2/list
+datasets/nyu_v2/nyu_v2_mean.npy
 datasets/nyu_v2/nyu_train_val
 weights/vgg_deeplab_lfov/tf_deeplab.pth
 weights/nyu_v2/tf_finetune_seg.pth
