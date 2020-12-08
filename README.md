@@ -38,7 +38,7 @@ weights/nyu_v2/tf_finetune_normal.pth
 ```
 
 ## Training
-All the arguments to train/eval MTLNAS are shown in `configs/defaults.py`. The configuration files for different experiments are also provided in the `configs` directory. To run the NDDR-CNN baseline with VGG-16 architecture, simply call:
+All the arguments to train/eval MTLNAS are shown in `core/config/defaults.py`. The configuration files for different experiments are also provided in the `configs` directory. To run the NDDR-CNN baseline with VGG-16 architecture, simply call:
 
 ```sh
 $ CUDA_VISIBLE_DEVICES=0 python tools/train.py --config-file configs/vgg/vgg_nyuv2_nddr.yaml
