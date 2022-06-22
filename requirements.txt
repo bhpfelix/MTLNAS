@@ -5,7 +5,7 @@ imageio==2.8.0
 kiwisolver==1.1.0
 matplotlib==3.2.0
 networkx==2.4
-numpy==1.18.1
+numpy==1.22.0
 Pillow==7.0.0
 protobuf==3.11.3
 pyparsing==2.4.6
